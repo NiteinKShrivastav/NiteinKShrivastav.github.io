@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nitein K Shrivastav | Author Website | TEST</title>
+<title>Nitein K Shrivastav | Author Website</title>
 
 <style>
 body {
@@ -12,6 +12,43 @@ body {
     margin: 0;
     background: #f4f6f9;
     color: #333;
+}
+/* Navigation Bar */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:#0B3C5D;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:35px;
+    margin:0;
+    padding:0;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#FFD166;
 }
 
 header {
@@ -30,33 +67,200 @@ header p {
     font-size: 18px;
 }
 
-.hero {
-    padding: 60px 20px;
-    text-align: center;
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:80px 10%;
+    gap:60px;
+    background:linear-gradient(135deg,#ffffff,#f1f5f9);
+    min-height:520px;
 }
 
-.hero h2 {
-    color: #0B3C5D;
-    font-size: 32px;
+.hero-text{
+    flex:1;
 }
 
-.hero p {
-    max-width: 700px;
-    margin: 20px auto;
-    font-size: 18px;
-    line-height: 1.6;
+.hero-image{
+    flex:1;
+    text-align:center;
+}
+
+.hero-image img{
+    width:340px;
+    max-width:100%;
+    border-radius:15px;
+    box-shadow:0 20px 45px rgba(0,0,0,0.25);
+    transition:0.3s;
+}
+
+.hero-image img:hover{
+    transform:translateY(-8px);
+}
+
+.tagline{
+    color:#B8860B;
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size:14px;
+}
+
+.hero h2{
+    font-size:52px;
+    color:#0B3C5D;
+    margin:15px 0;
+    font-weight:800;
+    line-height:1.2;
+}
+
+.hero-subtitle{
+    font-size:28px;
+    color:#555;
+    line-height:1.4;
+    margin:15px 0;
+    font-weight:600;
+}
+
+.hero h3{
+    font-size:24px;
+    color:#555;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+    max-width:650px;
+}
+
+.hero-tags{
+    color:#222;
+    font-size:18px;
+    font-weight:800;
+    margin:20px 0;
+    letter-spacing:1px;
+}
+.leadership{
+    color:#0B3C5D;
+    font-weight:bold;
+}
+
+.operations{
+    color:#B8860B;
+    font-weight:bold;
+}
+
+.author{
+    color:#8B0000;
+    font-weight:bold;
+}
+.hero button{
+    margin-top:25px;
 }
 
 .book-section {
-    background: white;
-    margin: 30px auto;
-    padding: 40px;
-    max-width: 700px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    text-align: center;
+    background:#ffffff;
+    margin:60px auto;
+    padding:50px;
+    max-width:900px;
+    border-radius:20px;
+    box-shadow:0 12px 35px rgba(0,0,0,0.12);
+    text-align:center;
 }
 
+.book-section h2{
+    font-size:36px;
+    color:#0B3C5D;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+
+.book-section h3{
+    font-size:20px;
+    color:#555;
+    font-weight:500;
+    margin-bottom:30px;
+}
+
+.book-section p{
+    font-size:17px;
+    line-height:1.8;
+    color:#444;
+    text-align:justify;
+    margin-top:30px;
+}
+.book-container{
+    display:flex;
+    align-items:center;
+    gap:50px;
+}
+.why-book{
+    padding:60px 10%;
+    text-align:center;
+    background:#f4f6f9;
+}
+
+.why-book h2{
+    color:#0B3C5D;
+    font-size:36px;
+    margin-bottom:40px;
+}
+
+.why-container{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+}
+
+.why-card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.12);
+    flex:1;
+}
+
+.why-card h3{
+    color:#0B3C5D;
+}
+
+.why-card p{
+    color:#555;
+    line-height:1.7;
+}
+
+
+@media(max-width:768px){
+
+.why-container{
+    flex-direction:column;
+}
+
+}
+
+.book-image{
+    flex:1;
+    text-align:center;
+}
+
+.book-content{
+    flex:1;
+}
+
+.book-image img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+@media(max-width:768px){
+
+.book-container{
+    flex-direction:column;
+}
+
+}
 .book-section img {
     width: 250px;
     border-radius: 12px;
@@ -64,27 +268,130 @@ header p {
 }
 
 button {
-    margin-top: 25px;
-    padding: 14px 35px;
-    background: #0B3C5D;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
+    margin-top:25px;
+    padding:15px 40px;
+    background:#A64B4B;
+    color:white;
+    border:none;
+    border-radius:30px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    letter-spacing:0.5px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.20);
+    transition:0.3s;
 }
 
 button:hover {
-    background: #145d87;
+    background:#7D2E2E;
+    transform:translateY(-3px);
 }
 
-.about {
-    padding: 40px 20px;
-    text-align: center;
+.about{
+    background:#ffffff;
+    padding:70px 10%;
+    text-align:center;
 }
 
-.about h2 {
-    color: #0B3C5D;
+.about h2{
+    font-size:38px;
+    color:#0B3C5D;
+    margin-bottom:30px;
+}
+
+.about p{
+    max-width:900px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.9;
+    color:#444;
+    text-align:justify;
+}
+
+.about-container{
+    display:flex;
+    align-items:center;
+    gap:60px;
+}
+
+.about-image{
+    flex:1;
+    text-align:center;
+}
+.about-image img{
+    width:300px;
+    height:380px;
+    object-fit:cover;
+    border-radius:20px;
+    border:5px solid white;
+    box-shadow:0 15px 35px rgba(0,0,0,0.20);
+    transition:0.3s;
+}
+
+.about-image img:hover{
+    transform:translateY(-6px);
+}
+
+.about-content{
+    flex:2;
+}
+
+@media(max-width:768px){
+
+.about-container{
+    flex-direction:column;
+    text-align:center;
+}
+
+.about p{
+    text-align:left;
+}
+
+}
+
+.highlights{
+    background:#f4f6f9;
+    padding:70px 10%;
+    text-align:center;
+}
+
+.highlights h2{
+    color:#0B3C5D;
+    font-size:38px;
+    margin-bottom:40px;
+}
+
+.highlight-container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.highlight-card{
+    background:white;
+    width:220px;
+    padding:30px 20px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    transition:0.3s;
+}
+
+.highlight-card:hover{
+    transform:translateY(-8px);
+}
+
+.highlight-card h3{
+    color:#A64B4B;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.highlight-card p{
+    margin:0;
+    color:#555;
+    text-align:center;
+    line-height:1.6;
 }
 
 .contact {
@@ -115,67 +422,185 @@ footer {
 </head>
 
 <body>
-    <h2 style="text-align:center; color:red; padding:20px;">
-🚀 GitHub Pages Test - 03 Aug 2026
-</h2>
 
-<header>
-<h1>Nitein K Shrivastav</h1>
-<p>Work Director - Textile Manufacturing | Author</p>
-</header>
+<nav class="navbar">
+
+    <div class="logo">
+        <strong>Nitein K Shrivastav</strong>
+    </div>
+
+    <ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#book">Book</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
 
 
-<section class="hero">
+<section id="home" class="hero">
 
-<h2>Welcome</h2>
+    <div class="hero-text">
 
-<p>
-Welcome to the official website of 
-<strong>Nitein K Shrivastav</strong>.
+        <p class="tagline">AUTHOR • LEADER • MENTOR</p>
+
+        <h2>Nitein K Shrivastav</h2>
+
+       <h3 class="hero-subtitle">
+Engineering Excellence<br>
+Driving Business Value
+</h3>
+
+<p class="hero-tags">
+<span class="leadership">Leadership</span> • 
+<span class="operations">Operational Excellence</span> • 
+<span class="author">Author</span>
 </p>
 
-<p>
-A Work Director in the Textile Manufacturing industry,
-sharing knowledge, leadership, and professional experience
-through books and practical insights.
-</p>
+        <p>
+            Welcome to my official website. I am passionate about leadership,
+            Operational excellence, Continuous learning & helping people
+            build a better future through knowledge and practical experience.
+        </p>
+
+        <button>Explore the Book</button>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="book-cover.png" alt="Educated Illiterates Book Cover">
+
+    </div>
 
 </section>
 
 
-<section class="book-section">
+<section id="book" class="book-section">
+
+<div class="book-container">
+
+<div class="book-image">
+<img src="book-cover.png" alt="Educated Illiterates Book Cover">
+</div>
+
+<div class="book-content">
 
 <h2>EDUCATED ILLITERATES</h2>
-<h3>Personal Financial Management Your Money, Your Future</h3>
 
-<img src="book.jpg" alt="Book Cover">
+<h3>
+Personal Financial Management<br>
+Your Money, Your Future
+</h3>
 
 <p>
 Money is one of the most powerful forces in our lives. We work hard to earn it, yet many of us never really learn how to manage it. We are educated in schools and colleges, but when it comes to personal finance, many of us act like educated illiterates — we know how to spend, but not always how to save, protect, and grow our money.
-The chapters are simple, practical, and free from jargon. You won't find complicated formulas or heavy financial theories here. Instead, you'll discover stories, relatable examples, and easy-to-follow frameworks that can help you take charge of your money
 </p>
 
 <button>
 Explore the Book
 </button>
 
+</div>
+
+</div>
+
+</section>  
+
+<section class="why-book">
+
+<h2>Why This Book Matters</h2>
+
+<div class="why-container">
+
+<div class="why-card">
+<h3>Financial Awareness</h3>
+<p>
+Understand the importance of managing money and building strong financial habits.
+</p>
+</div>
+
+<div class="why-card">
+<h3>Smart Money Decisions</h3>
+<p>
+Learn practical ways to save, protect, and grow your hard-earned money.
+</p>
+</div>
+
+<div class="why-card">
+<h3>Better Financial Future</h3>
+<p>
+Develop a mindset that helps you create long-term financial confidence.
+</p>
+</div>
+
+</div>
+
 </section>
 
+<section id="about" class="about">
 
-<section class="about">
+<div class="about-container">
+
+<div class="about-image">
+<img src="https://via.placeholder.com/300x380?text=Author+Photo" alt="Author Photo">
+</div>
+
+<div class="about-content">
 
 <h2>About the Author</h2>
 
 <p>
-With over 35 years of leadership experience in the textile and apparel industry, the author has led large-scale integrated manufacturing operations across fabric and garmenting businesses, driving operational excellence, business transformation, cost optimization, and sustainability initiatives.
-
-Currently serving as Head of Operations (Fabric & Garmenting) at Raymond UCO Denim at a COO-equivalent level, he combines deep industry expertise with a passion for continuous learning, leadership development, and financial awareness
+Nitein K Shrivastav is a passionate professional, accomplished leader, and lifelong learner with decades of experience in manufacturing leadership and operational excellence. Throughout his career, he has mentored and inspired professionals by combining practical insights with grounded wisdom, empowering individuals and teams to achieve sustainable growth and excellence.
 </p>
+
+<p>
+Driven by a strong belief that financial literacy is an essential life skill, he authored <strong>Educated Illiterates</strong> to simplify personal finance for everyday readers. Drawing from real-world experiences rather than complex theories, he shares practical financial lessons that help individuals make informed money decisions, develop healthy financial habits, and build a secure and prosperous future.
+</p>
+
+<p>
+His mission is to inspire continuous learning, responsible financial decision-making, and purposeful leadership that creates lasting value in both personal and professional life.
+</p>
+
+</div>
+
+</div>
+
 
 </section>
 
+<section class="highlights">
 
-<section class="contact">
+<h2>Author Highlights</h2>
+
+<div class="highlight-container">
+
+<div class="highlight-card">
+<h3>35+</h3>
+<p>Years of Leadership Experience</p>
+</div>
+
+<div class="highlight-card">
+<h3>Operations</h3>
+<p>Manufacturing Excellence</p>
+</div>
+
+<div class="highlight-card">
+<h3>Author</h3>
+<p>Financial Literacy Advocate</p>
+</div>
+
+<div class="highlight-card">
+<h3>Mentor</h3>
+<p>Lifelong Learner</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
 
 <h2>Contact</h2>
 
