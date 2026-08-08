@@ -22,6 +22,7 @@
 <li><a href="#home">Home</a></li>
 <li><a href="#book">Books</a></li>
 <li><a href="#about">About</a></li>
+<li><a href="https://www.amazon.in/Educated-Illiterates-Personal-Finance-Management-ebook/dp/B0GMXMVHQV" target="_blank">Amazon</a></li>
 <li><a href="#contact">Contact</a></li>
     </ul>
 
@@ -100,9 +101,17 @@ Managing money is a skill rarely taught in school. <strong>Educated Illiterates<
 
 </ul>
 
-<button type="button" onclick="document.getElementById('copyRequestForm').style.display='block'">
-    Request a Copy
-</button>
+<div class="book-action-row">
+
+    <p class="book-price">
+        Price: ₹440
+    </p>
+
+    <button type="button" onclick="document.getElementById('copyRequestForm').style.display='block'">
+        Request a Copy
+    </button>
+
+</div>
 
 <form id="copyRequestForm" action="https://formspree.io/f/xqpzeqqw" method="POST" class="copy-request-form">
 
@@ -131,6 +140,51 @@ Managing money is a skill rarely taught in school. <strong>Educated Illiterates<
 </div>
 </section>  
 
+<section id="reviews" class="reviews-section">
+
+    <h2>Reader Reviews</h2>
+
+    <p>
+        Have you read <strong>Educated Illiterates</strong>?
+        Share your experience and help other readers discover the book.
+    </p>
+
+    <div class="no-reviews">
+    No reviews yet. Be the first to share your experience.
+</div>
+
+    <button type="button" onclick="document.getElementById('reviewForm').style.display='block';">
+    Give Your Review
+</button>
+
+<form id="reviewForm" class="review-form" action="https://formspree.io/f/xeajezve" method="POST">
+
+    <label for="reviewName">Your Name</label>
+    <input type="text" id="reviewName" name="name" required>
+
+    <label for="reviewRating">Rating</label>
+    <select id="reviewRating" name="rating" required>
+        <option value="">Select Rating</option>
+        <option value="5">★★★★★ 5 Stars</option>
+        <option value="4">★★★★☆ 4 Stars</option>
+        <option value="3">★★★☆☆ 3 Stars</option>
+        <option value="2">★★☆☆☆ 2 Stars</option>
+        <option value="1">★☆☆☆☆ 1 Star</option>
+    </select>
+
+    <label for="reviewMessage">Your Review</label>
+    <textarea id="reviewMessage" name="message" rows="5" required></textarea>
+
+    <button type="submit">Submit Review</button>
+
+</form>
+
+<div id="reviewSuccess" class="review-success">
+    Thank you for sharing your review.<br>
+    It has been submitted for approval.
+</div>
+
+</section>
 
 
 <section class="why-book">
@@ -270,6 +324,32 @@ if (response.ok) {
     successMessage.style.display = "block";
 }
 });
+
+const reviewForm = document.getElementById("reviewForm");
+const reviewSuccess = document.getElementById("reviewSuccess");
+
+reviewForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(reviewForm);
+
+    const response = await fetch(reviewForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+            "Accept": "application/json"
+        }
+    });
+
+    if (response.ok) {
+        reviewForm.style.display = "none";
+        reviewSuccess.style.display = "block";
+        reviewForm.reset();
+    } else {
+        alert("There was a problem submitting your review. Please try again.");
+    }
+});
+
 </script>
 
 </body>
