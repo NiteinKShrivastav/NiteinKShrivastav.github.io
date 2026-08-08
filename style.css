@@ -203,7 +203,7 @@ header p {
 
 .book-section {
     background:#f8fafc;
-    margin:60px auto;
+    margin:35px auto;
     padding:50px;
     max-width:1000px;
     border-radius:20px;
@@ -264,7 +264,7 @@ header p {
     line-height:1.8;
     color:#444;
     text-align:left;
-    margin-top:8px;
+    margin:8px 0 5px 0;
 }
 
 .why-book{
@@ -356,17 +356,80 @@ header p {
     }
 
 }
+.copy-request-form {
+    display: none;
+    margin-top: 25px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+    text-align: left;
+}
+.copy-success {
+    display: none;
+    text-align: center;
+    color: #0B3C5D;
+    font-weight: 600;
+    line-height: 1.6;
+    max-width: 320px;
+    margin: 0 auto 20px auto;
+}
+
+.copy-request-form h3 {
+    color: #0B3C5D;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.copy-request-form label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+}
+
+.copy-request-form input,
+.copy-request-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.copy-request-form textarea {
+    resize: vertical;
+}
+
+.copy-request-form button {
+    margin-top: 18px;
+    padding: 12px 30px;
+    background: #A64B4B;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .book-benefits{
     list-style:none;
     padding:0;
-    margin:15px 0;
+    margin:0;
 }
 
 .book-benefits li{
-    padding:10px 0;
+    padding:0px 0;
     color:#333;
     font-size:17px;
     font-weight:500;
+}
+.book-benefits li:first-child {
+    padding-top: 0;
 }
 
 button {
@@ -513,15 +576,25 @@ button:hover {
 }
 
 .contact {
-    background: #0B3C5D;
-    color: white;
-    text-align: center;
-    padding: 30px;
+background: #29465b;
+ color: white;
+text-align: center;
+padding: 20px 20px;
+}
+.contact-email {
+    color: #f5f1e8;
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+#book {
+    scroll-margin-top: 80px;
 }
 
 footer {
-    background: #08283d;
-    color: white;
+    background: #1f3647;
+    color: #f5f1e8;
     text-align: center;
     padding: 15px;
 }
