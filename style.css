@@ -250,14 +250,44 @@ header p {
     line-height:1.7;
 }
 
-
 @media(max-width:768px){
 
-.why-container,
-.book-container,
-.about-container{
-    flex-direction:column;
-}
+    .why-container,
+    .book-container,
+    .about-container{
+        flex-direction:column;
+    }
+
+    .book-section{
+        margin:30px 15px;
+        padding:25px 15px;
+    }
+
+    .book-container{
+        gap:30px;
+        max-width:100%;
+    }
+
+    .book-image{
+        flex:0 0 auto;
+        width:100%;
+    }
+
+    .book-section img{
+        width:100%;
+        max-width:300px;
+    }
+
+    .book-content{
+        width:100%;
+        box-sizing:border-box;
+        padding:20px;
+    }
+
+    .featured-title{
+        font-size:26px;
+        margin-bottom:25px;
+    }
 
 }
 
