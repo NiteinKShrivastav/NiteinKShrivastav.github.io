@@ -1,4 +1,5 @@
 body {
+    overflow-x: hidden;
     font-family: Arial, sans-serif;
     margin: 0;
     background: #f4f6f9;
@@ -41,7 +42,25 @@ body {
 .nav-links a:hover{
     color:#FFD166;
 }
+@media (max-width: 768px) {
 
+    .navbar {
+        padding: 12px 18px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+}
 header {
     background: #0B3C5D;
     color: white;
@@ -88,6 +107,39 @@ header p {
 .hero-image img:hover{
     transform:translateY(-8px);
 }
+
+@media (max-width: 768px) {
+
+    .hero {
+        flex-direction: column;
+        padding: 50px 20px;
+        gap: 30px;
+    }
+
+    .hero-image {
+        width: 100%;
+        display: block;
+    }
+
+    .hero-image img {
+        width: 280px;
+        max-width: 90%;
+    }
+    .hero h2 {
+    font-size: 30px !important;
+}
+    
+    .hero-subtitle {
+    font-size: 16px;
+    }
+    
+    .hero p {
+    font-size: 12px;
+    line-height: 1.6;
+    }
+
+}
+
 .tagline{
     color:#B8860B;
     font-weight:bold;
@@ -392,14 +444,26 @@ button:hover {
 
 @media(max-width:768px){
 
-.about-container{
-    flex-direction:column;
-    text-align:center;
-}
+    .about-container{
+        flex-direction:column;
+        text-align:center;
+    }
 
-.about p{
-    text-align:left;
-}
+    .about p{
+        text-align:left;
+        font-size:16px;
+        line-height:1.6;
+    }
+
+    .about-image img {
+        width:250px;
+        height:auto;
+    }
+
+    .about {
+        padding:40px 20px;
+        box-sizing:border-box;
+    }
 
 }
 
