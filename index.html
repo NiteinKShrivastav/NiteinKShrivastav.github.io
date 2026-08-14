@@ -186,6 +186,81 @@ Managing money is a skill rarely taught in school. <strong>Educated Illiterates<
 
 </section>
 
+<section class="approved-reviews">
+    <h3>Reader Feedback</h3>
+
+    <div class="reviews-slider">
+        <div class="reviews-track">
+
+            <div class="review-group">
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                    </div>
+                    
+                    <p class="review-text">
+                        “Importance of caring money and it's Investment” — Best book for personal finance management. Simple explanation in simple English, explained by storytelling way without financial jargons...
+                    </p>
+                    <p class="review-author">— Shefalee</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                    </div>
+                    
+                    <p class="review-text">
+                        “It's very nicely elaborated information for we professionals who are busy in our field n least bothered about future investment.”
+                    </p>
+                    <p class="review-author">— Ajay Keshwani</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                    </div>
+                    
+                    <p class="review-text">
+                        “Excellent guide on managing Personal Investment” — Excellent, easy to understand, book on managing personal finances for people busy with routine or lacking expert knowledge on investments.
+                    </p>
+                    <p class="review-author">— Kindle Reader</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                    </div>
+                    <p class="review-text">
+                        “My money, My Investment” — Fabulous, Powerful guide to financial independence, praised for simplifying complex financial concepts. Helpful for financial guidance to create Wealth for future..
+                    </p>
+                    <p class="review-author">— Hanumant Tomar</p>
+                </div>
+
+            </div>
+
+            
+            </div>
+
+        </div>
+    </div>
+</section>
 
 <section class="why-book">
 
@@ -350,6 +425,18 @@ reviewForm.addEventListener("submit", async function(event) {
     }
 });
 
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".reviews-track");
+    const group = document.querySelector(".review-group");
+
+    if (track && group) {
+        const clone = group.cloneNode(true);
+        track.appendChild(clone);
+    }
+});
 </script>
 
 </body>
