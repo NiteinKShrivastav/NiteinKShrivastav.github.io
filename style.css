@@ -497,12 +497,12 @@ button:hover {
     background:#7D2E2E;
     transform:translateY(-3px);
 }
-.mentorship-button {
+.contact .mentorship-button {
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 2px;
     padding: 12px 30px;
     background: #A64B4B;
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 25px;
     font-size: 16px;
@@ -511,7 +511,7 @@ button:hover {
     text-decoration: none;
 }
 
-.mentorship-button:hover {
+.contact .mentorship-button:hover {
     background: #8f3f3f;
 }
 
