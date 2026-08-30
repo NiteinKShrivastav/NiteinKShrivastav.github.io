@@ -497,6 +497,23 @@ button:hover {
     background:#7D2E2E;
     transform:translateY(-3px);
 }
+.mentorship-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 30px;
+    background: #A64B4B;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.mentorship-button:hover {
+    background: #8f3f3f;
+}
 
 .about{
     background:#f8fafc;
@@ -633,7 +650,13 @@ padding: 20px 20px;
     font-weight: 600;
     font-size: 17px;
 }
+.contact p {
+    margin: 6px 0;
+}
 
+.contact .mentorship-button {
+    margin-top: 2px;
+}
 #book {
     scroll-margin-top: 80px;
 }
