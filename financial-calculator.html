@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Plan Your Finances | Educated Illiterates</title>
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f3ef;
+    color: #333;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #222;
+    color: white;
+    padding: 22px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+header p {
+    margin: 7px 0 0;
+    color: #c6a15b;
+    font-size: 14px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.calculator-container {
+    max-width: 950px;
+    margin: 45px auto;
+    padding: 0 20px;
+}
+
+.calculator-card {
+    background: white;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.calculator-card h2 {
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+}
+
+.intro {
+    text-align: center;
+    color: #666;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 12px auto 35px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.finance-section {
+    margin-bottom: 32px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.section-title h3 {
+    margin: 0;
+    font-size: 21px;
+}
+
+.section-number {
+    background: #c6a15b;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.currency {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #777;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 15px 14px 38px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #c6a15b;
+    box-shadow: 0 0 0 2px rgba(198,161,91,0.12);
+}
+
+/* =========================
+   EXPENSE GRID
+========================= */
+
+.expense-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.expense-item {
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.expense-item label {
+    font-size: 14px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.calculate-btn {
+    width: 100%;
+    padding: 16px;
+    background: #A64B4B;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+.calculate-btn:hover {
+    background: #8f3f3f;
+}
+
+/* =========================
+   RESULT
+========================= */
+
+#result {
+    display: none;
+    margin-top: 40px;
+}
+
+.result-box {
+    padding: 28px;
+    border-radius: 10px;
+}
+
+.good {
+    background: #e9f6ed;
+    border: 1px solid #9ed0aa;
+}
+
+.warning {
+    background: #fff4df;
+    border: 1px solid #e2bd70;
+}
+
+.danger {
+    background: #fdeaea;
+    border: 1px solid #df9a9a;
+}
+
+.result-box h3 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 25px;
+}
+
+.result-message {
+    text-align: center;
+    line-height: 1.7;
+}
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.summary-item {
+    background: white;
+    border: 1px solid #eee;
+    padding: 16px;
+    border-radius: 7px;
+}
+
+.summary-label {
+    display: block;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.summary-value {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* =========================
+   FINANCIAL STATUS
+========================= */
+
+.status-box {
+    background: white;
+    padding: 18px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.status-box strong {
+    font-size: 20px;
+}
+
+/* =========================
+   SUGGESTIONS
+========================= */
+
+.suggestions {
+    margin-top: 25px;
+    background: white;
+    padding: 22px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.suggestions h4 {
+    margin-top: 0;
+    color: #A64B4B;
+    font-size: 20px;
+}
+
+.suggestions ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.suggestions li {
+    margin-bottom: 13px;
+    line-height: 1.6;
+}
+
+/* =========================
+   BREAKDOWN
+========================= */
+
+.breakdown {
+    margin-top: 25px;
+}
+
+.breakdown h4 {
+    margin-bottom: 15px;
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.breakdown-row:last-child {
+    border-bottom: none;
+}
+
+/* =========================
+   RESET
+========================= */
+
+.reset-btn {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid #A64B4B;
+    color: #A64B4B;
+    padding: 11px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.reset-btn:hover {
+    background: #A64B4B;
+    color: white;
+}
+
+/* =========================
+   DISCLAIMER
+========================= */
+
+.disclaimer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+    font-size: 13px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .calculator-container {
+        margin: 25px auto;
+    }
+
+    .calculator-card {
+        padding: 25px 18px;
+    }
+
+    .calculator-card h2 {
+        font-size: 25px;
+    }
+
+    .expense-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+}
+
+/* =========================
+   BACK TO WEBSITE BUTTON
+========================= */
+
+.back-to-website {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    background: #A64B4B;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.back-to-website:hover {
+    background: #8f3f3f;
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+<h1>EDUCATED ILLITERATES</h1>
+
+<p>Personal Financial Management</p>
+
+</header>
+
+
+<main class="calculator-container">
+    
+    <a href="index.html" class="back-to-website">
+    ← Back to Website
+</a>
+
+<div class="calculator-card">
+
+<h2>Plan Your Finances</h2>
+
+<p class="intro">
+Understand where your money is going, check your monthly financial
+position and get simple suggestions to improve your financial planning.
+</p>
+
+
+<!-- =========================
+     1. INCOME
+========================= -->
+
+<div class="finance-section">
+
+<div class="section-title">
+
+<div class="section-number">1</div>
+
+<h3>Your Monthly Income</h3>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="income">
+Monthly Net Income
+</label>
+
+<div class="input-wrapper">
+
+<span class="currency">₹</span>
+
+<input
+type="number"
+id="income"
+placeholder="Enter your monthly income"
+min="0"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     2. SAVINGS
+========================= -->
+
+<div class="finance-section">
+
+<div class="section-title">
+
+<div class="section-number">2</div>
+
+<h3>Your Monthly Savings</h3>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="savings">
+Savings / Investments
+</label>
+
+<div class="input-wrapper">
+
+<span class="currency">₹</span>
+
+<input
+type="number"
+id="savings"
+placeholder="Enter your monthly savings"
+min="0"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     3. EXPENDITURE
+========================= -->
+
+<div class="finance-section">
+
+<div class="section-title">
+
+<div class="section-number">3</div>
+
+<h3>Your Monthly Expenditure</h3>
+
+</div>
+
+
+<div class="expense-grid">
+
+
+<!-- ESSENTIAL -->
+
+<div class="expense-item">
+
+<div class="form-group">
+
+<label for="essential">
+🏠 Household / Essentials
+</label>
+
+<div class="input-wrapper">
+
+<span class="currency">₹</span>
+
+<input
+type="number"
+id="essential"
+placeholder="Amount"
+min="0"
+value="0"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FOOD -->
+
+<div class="expense-item">
+
+<div class="form-group">
+
+<label for="food">
+🍔 Food & Lifestyle
+</label>
+
+<div class="input-wrapper">
+
+<span class="currency">₹</span>
+
+<input
+type="number"
+id="food"
+placeholder="Amount"
+min="0"
+value="0"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TRAVEL -->
+
+<div class="expense-item">
+
+<div class="form-group">
+
+<label for="travel">
+🚗 Travel / Transport
+</label>
+
+<div class="input-wrapper">
+
+<span class="currency">₹</span>
+
+<input
+type="number"
+id="travel"
+placeholder="Amount"
+min="0"
+value="0"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- EMI -->
+
+<div class="expense-item">
+
+<div class="form-group">
+
+<label for="emi">
+💳 EMI / Loan Payments
+</label>
+
+<div class="input-wrapper">
+
+<span class="currency">₹</span>
+
+<input
+type="number"
+id="emi"
+placeholder="Amount"
+min="0"
+value="0"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BILLS -->
+
+<div class="expense-item">
+
+<div class="form-group">
+
+<label for="bills">
+📱 Bills & Subscriptions
+</label>
+
+<div class="input-wrapper">
+
+<span class="currency">₹</span>
+
+<input
+type="number"
+id="bills"
+placeholder="Amount"
+min="0"
+value="0"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SHOPPING -->
+
+<div class="expense-item">
+
+<div class="form-group">
+
+<label for="shopping">
+🛍️ Shopping / Personal
+</label>
+
+<div class="input-wrapper">
+
+<span class="currency">₹</span>
+
+<input
+type="number"
+id="shopping"
+placeholder="Amount"
+min="0"
+value="0"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MEDICAL -->
+
+<div class="expense-item">
+
+<div class="form-group">
+
+<label for="medical">
+🩺 Medical / Other
+</label>
+
+<div class="input-wrapper">
+
+<span class="currency">₹</span>
+
+<input
+type="number"
+id="medical"
+placeholder="Amount"
+min="0"
+value="0"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- OTHER -->
+
+<div class="expense-item">
+
+<div class="form-group">
+
+<label for="other">
+➕ Other Expenses
+</label>
+
+<div class="input-wrapper">
+
+<span class="currency">₹</span>
+
+<input
+type="number"
+id="other"
+placeholder="Amount"
+min="0"
+value="0"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     ANALYZE
+========================= -->
+
+<button
+class="calculate-btn"
+onclick="analyzeFinances()">
+
+Analyze My Finances
+
+</button>
+
+
+<!-- =========================
+     RESULT
+========================= -->
+
+<div id="result"></div>
+
+
+<p class="disclaimer">
+This calculator provides a general financial-planning illustration
+and is not personalized financial or investment advice.
+</p>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+© 2026 Nitein K Shrivastav | Educated Illiterates
+
+</footer>
+
+
+<script>
+
+/* =========================
+   FORMAT RUPEES
+========================= */
+
+function formatRupees(amount) {
+
+    return "₹" + Math.round(amount).toLocaleString("en-IN");
+
+}
+
+
+/* =========================
+   GET INPUT VALUE
+========================= */
+
+function getValue(id) {
+
+    const value =
+        parseFloat(document.getElementById(id).value);
+
+    return isNaN(value) ? 0 : value;
+
+}
+
+
+/* =========================
+   ANALYZE FINANCES
+========================= */
+
+function analyzeFinances() {
+
+    const income = getValue("income");
+
+    const savings = getValue("savings");
+
+
+    /* =========================
+       VALIDATE INCOME
+    ========================= */
+
+    if (income <= 0) {
+
+        alert("Please enter your monthly net income.");
+
+        return;
+
+    }
+
+
+    /* =========================
+       EXPENSE VALUES
+    ========================= */
+
+    const essential = getValue("essential");
+    const food = getValue("food");
+    const travel = getValue("travel");
+    const emi = getValue("emi");
+    const bills = getValue("bills");
+    const shopping = getValue("shopping");
+    const medical = getValue("medical");
+    const other = getValue("other");
+
+
+    /* =========================
+       TOTALS
+    ========================= */
+
+    const totalExpenses =
+        essential +
+        food +
+        travel +
+        emi +
+        bills +
+        shopping +
+        medical +
+        other;
+
+
+    const totalOutflow =
+        totalExpenses + savings;
+
+
+    const balance =
+        income - totalOutflow;
+
+
+    const savingsRate =
+        (savings / income) * 100;
+
+
+    const expenseRate =
+        (totalExpenses / income) * 100;
+
+
+    const emiRate =
+        (emi / income) * 100;
+
+
+    const lifestyleTotal =
+        food + shopping;
+
+
+    const lifestyleRate =
+        (lifestyleTotal / income) * 100;
+
+
+    /* =========================
+       FIND LARGEST CATEGORY
+    ========================= */
+
+    const expenses = {
+
+        "Household / Essentials": essential,
+
+        "Food & Lifestyle": food,
+
+        "Travel / Transport": travel,
+
+        "EMI / Loan Payments": emi,
+
+        "Bills & Subscriptions": bills,
+
+        "Shopping / Personal": shopping,
+
+        "Medical / Other": medical,
+
+        "Other Expenses": other
+
+    };
+
+
+    let largestCategory = "";
+    let largestAmount = 0;
+
+
+    for (const category in expenses) {
+
+        if (expenses[category] > largestAmount) {
+
+            largestAmount = expenses[category];
+
+            largestCategory = category;
+
+        }
+
+    }
+
+
+    const result =
+        document.getElementById("result");
+
+
+    result.style.display = "block";
+
+
+    let resultClass = "";
+    let title = "";
+    let message = "";
+
+    let suggestions = [];
+
+
+    /* ==================================================
+       CASE 1
+       EXPENDITURE + SAVINGS > INCOME
+    ================================================== */
+
+    if (balance < 0) {
+
+        resultClass = "danger";
+
+
+        const shortage =
+            Math.abs(balance);
+
+
+        title =
+            "🔴 Your monthly outflow is higher than your income";
+
+
+        message = `
+        Your income is <strong>${formatRupees(income)}</strong>,
+        while your savings and expenditure together are
+        <strong>${formatRupees(totalOutflow)}</strong>.
+
+        You currently have a monthly shortfall of
+        <strong>${formatRupees(shortage)}</strong>.
+        `;
+
+
+        /* ZERO SAVINGS + DEFICIT */
+
+        if (savings === 0) {
+
+            suggestions.push(
+                `You are currently saving <strong>₹0</strong>. Your first priority should be to bring your expenditure below your income. Once you create a surplus, start with a small and regular savings amount.`
+            );
+
+        }
+
+
+        /* SAVING WHILE IN DEFICIT */
+
+        else {
+
+            suggestions.push(
+                `You are currently saving ${formatRupees(savings)}, but your overall monthly outflow is still higher than your income. Consider temporarily reviewing your savings amount while you work on balancing your monthly cash flow.`
+            );
+
+        }
+
+
+        /* LARGEST EXPENSE */
+
+        if (largestCategory && largestAmount > 0) {
+
+            suggestions.push(
+                `Your largest expenditure category is <strong>${largestCategory}</strong> at ${formatRupees(largestAmount)}. This is the first area you should review for possible reductions.`
+            );
+
+        }
+
+
+        /* EMI */
+
+        if (emiRate > 30) {
+
+            suggestions.push(
+                `Your EMI/loan payments are around <strong>${emiRate.toFixed(1)}%</strong> of your income. This is a significant commitment. Avoid taking on additional debt and review your repayment strategy.`
+            );
+
+        }
+
+
+        /* LIFESTYLE */
+
+        if (lifestyleRate > 20) {
+
+            suggestions.push(
+                `Food, lifestyle and shopping together account for about <strong>${lifestyleRate.toFixed(1)}%</strong> of your income. Look for areas where discretionary spending can be reduced.`
+            );
+
+        }
+
+
+        /* BILLS */
+
+        if (bills > 0) {
+
+            suggestions.push(
+                "Review subscriptions and recurring bills. Cancel or reduce services that are not essential."
+            );
+
+        }
+
+
+        /* FINAL ACTION */
+
+        suggestions.push(
+            `Your immediate target should be to reduce your monthly outflow by at least <strong>${formatRupees(shortage)}</strong> so that your finances return to balance.`
+        );
+
+
+        suggestions.push(
+            "After your budget becomes balanced, focus on creating a small emergency fund and then gradually increase your savings."
+        );
+
+    }
+
+
+    /* ==================================================
+       CASE 2
+       NO SAVINGS BUT POSITIVE BALANCE
+    ================================================== */
+
+    else if (savings === 0 && balance > 0) {
+
+        resultClass = "warning";
+
+
+        title =
+            "🟡 You have money left, but you're not saving yet";
+
+
+        message = `
+        After your current expenditure,
+        you have <strong>${formatRupees(balance)}</strong>
+        remaining each month.
+
+        However, your current savings are
+        <strong>₹0</strong>.
+        `;
+
+
+        suggestions.push(
+            `Consider starting a regular savings habit. You could begin by setting aside a manageable amount from your ${formatRupees(balance)} monthly balance.`
+        );
+
+
+        if (balance >= income * 0.10) {
+
+            suggestions.push(
+                `You have enough monthly room to consider saving a meaningful portion of your remaining balance rather than allowing it to disappear into additional spending.`
+            );
+
+        }
+
+
+        suggestions.push(
+            "Start building an emergency fund before increasing discretionary spending."
+        );
+
+
+        suggestions.push(
+            "Automating a fixed saving amount soon after receiving your income can help make saving consistent."
+        );
+
+
+        if (largestCategory) {
+
+            suggestions.push(
+                `Your largest expense is <strong>${largestCategory}</strong> at ${formatRupees(largestAmount)}. Keep monitoring this category as your income and lifestyle change.`
+            );
+
+        }
+
+    }
+
+
+    /* ==================================================
+       CASE 3
+       SAVINGS BELOW 10%
+    ================================================== */
+
+    else if (savingsRate < 10 && balance >= 0) {
+
+        resultClass = "warning";
+
+
+        title =
+            "🟡 Your savings could be stronger";
+
+
+        message = `
+        You are currently saving
+        <strong>${formatRupees(savings)}</strong>
+        per month, which is about
+        <strong>${savingsRate.toFixed(1)}%</strong>
+        of your income.
+        `;
+
+
+        suggestions.push(
+            "Consider gradually increasing your savings rather than trying to make a large change all at once."
+        );
+
+
+        suggestions.push(
+            "Review your discretionary spending and redirect part of it toward savings."
+        );
+
+
+        if (largestCategory) {
+
+            suggestions.push(
+                `Your largest expense is <strong>${largestCategory}</strong> at ${formatRupees(largestAmount)}. A small reduction here could help increase your savings.`
+            );
+
+        }
+
+
+        suggestions.push(
+            "Build an emergency fund before taking on unnecessary financial commitments."
+        );
+
+    }
+
+
+    /* ==================================================
+       CASE 4
+       HEALTHY SAVINGS
+    ================================================== */
+
+    else {
+
+        resultClass = "good";
+
+
+        title =
+            "🟢 You are building a positive financial position";
+
+
+        message = `
+        You are saving
+        <strong>${formatRupees(savings)}</strong>
+        per month and have
+        <strong>${formatRupees(balance)}</strong>
+        remaining after savings and expenditure.
+        `;
+
+
+        suggestions.push(
+            `Your current savings rate is approximately <strong>${savingsRate.toFixed(1)}%</strong> of your income. Continue maintaining a consistent savings habit.`
+        );
+
+
+        suggestions.push(
+            "Keep an emergency fund for unexpected expenses before increasing lifestyle commitments."
+        );
+
+
+        suggestions.push(
+            "Set specific financial goals so your savings have a clear purpose."
+        );
+
+
+        if (largestCategory) {
+
+            suggestions.push(
+                `Your largest expenditure category is <strong>${largestCategory}</strong> at ${formatRupees(largestAmount)}. Continue monitoring it so that lifestyle inflation does not reduce your future savings.`
+            );
+
+        }
+
+
+        if (emiRate > 30) {
+
+            suggestions.push(
+                `Although your overall position is positive, EMI/loan payments are around <strong>${emiRate.toFixed(1)}%</strong> of income. Consider reducing debt before taking on additional commitments.`
+            );
+
+        }
+
+    }
+
+
+    /* ==================================================
+       BUILD SUGGESTIONS
+    ================================================== */
+
+    let suggestionHTML = "";
+
+
+    suggestions.forEach(function(item) {
+
+        suggestionHTML += `<li>${item}</li>`;
+
+    });
+
+
+    /* =========================
+       BALANCE LABEL
+    ========================= */
+
+    let balanceLabel;
+
+
+    if (balance < 0) {
+
+        balanceLabel = "Monthly Shortfall";
+
+    } else {
+
+        balanceLabel = "Remaining Balance";
+
+    }
+
+
+    /* =========================
+       RESULT HTML
+    ========================= */
+
+    result.innerHTML = `
+
+    <div class="result-box ${resultClass}">
+
+        <h3>${title}</h3>
+
+
+        <p class="result-message">
+            ${message}
+        </p>
+
+
+        <div class="summary-grid">
+
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    Monthly Income
+                </span>
+
+                <span class="summary-value">
+                    ${formatRupees(income)}
+                </span>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    Monthly Savings
+                </span>
+
+                <span class="summary-value">
+                    ${formatRupees(savings)}
+                </span>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    Total Expenditure
+                </span>
+
+                <span class="summary-value">
+                    ${formatRupees(totalExpenses)}
+                </span>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    Total Monthly Outflow
+                </span>
+
+                <span class="summary-value">
+                    ${formatRupees(totalOutflow)}
+                </span>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    ${balanceLabel}
+                </span>
+
+                <span class="summary-value">
+                    ${formatRupees(Math.abs(balance))}
+                </span>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    Savings Rate
+                </span>
+
+                <span class="summary-value">
+                    ${savingsRate.toFixed(1)}%
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="status-box">
+
+            <strong>Financial Snapshot</strong>
+
+            <p>
+                You are using approximately
+                <strong>${expenseRate.toFixed(1)}%</strong>
+                of your income for expenditure.
+            </p>
+
+        </div>
+
+
+        <div class="breakdown">
+
+            <h4>📊 Your Expenditure Breakdown</h4>
+
+
+            <div class="breakdown-row">
+                <span>🏠 Household / Essentials</span>
+                <strong>${formatRupees(essential)}</strong>
+            </div>
+
+
+            <div class="breakdown-row">
+                <span>🍔 Food & Lifestyle</span>
+                <strong>${formatRupees(food)}</strong>
+            </div>
+
+
+            <div class="breakdown-row">
+                <span>🚗 Travel / Transport</span>
+                <strong>${formatRupees(travel)}</strong>
+            </div>
+
+
+            <div class="breakdown-row">
+                <span>💳 EMI / Loans</span>
+                <strong>${formatRupees(emi)}</strong>
+            </div>
+
+
+            <div class="breakdown-row">
+                <span>📱 Bills & Subscriptions</span>
+                <strong>${formatRupees(bills)}</strong>
+            </div>
+
+
+            <div class="breakdown-row">
+                <span>🛍️ Shopping / Personal</span>
+                <strong>${formatRupees(shopping)}</strong>
+            </div>
+
+
+            <div class="breakdown-row">
+                <span>🩺 Medical / Other</span>
+                <strong>${formatRupees(medical)}</strong>
+            </div>
+
+
+            <div class="breakdown-row">
+                <span>➕ Other Expenses</span>
+                <strong>${formatRupees(other)}</strong>
+            </div>
+
+
+        </div>
+
+
+        <div class="suggestions">
+
+            <h4>💡 Suggestions for You</h4>
+
+            <ul>
+                ${suggestionHTML}
+            </ul>
+
+        </div>
+
+
+        <button
+            class="reset-btn"
+            onclick="resetCalculator()">
+
+            Start Again
+
+        </button>
+
+
+    </div>
+
+    `;
+
+
+    /* =========================
+       SCROLL TO RESULT
+    ========================= */
+
+    result.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "start"
+
+    });
+
+}
+
+
+/* =========================
+   RESET CALCULATOR
+========================= */
+
+function resetCalculator() {
+
+    document
+        .querySelectorAll("input")
+        .forEach(function(input) {
+
+            if (
+                input.id === "essential" ||
+                input.id === "food" ||
+                input.id === "travel" ||
+                input.id === "emi" ||
+                input.id === "bills" ||
+                input.id === "shopping" ||
+                input.id === "medical" ||
+                input.id === "other"
+            ) {
+
+                input.value = 0;
+
+            } else {
+
+                input.value = "";
+
+            }
+
+        });
+
+
+    const result =
+        document.getElementById("result");
+
+
+    result.style.display = "none";
+
+    result.innerHTML = "";
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
