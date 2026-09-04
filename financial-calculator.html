@@ -572,8 +572,7 @@ min="0"
 
 <div class="form-group">
 
-<label for="essential">
-🏠 Household / Essentials
+<label for="essential">🏠 Rental / Household / Essentials
 </label>
 
 <div class="input-wrapper">
@@ -631,7 +630,7 @@ value="0"
 <div class="form-group">
 
 <label for="travel">
-🚗 Travel / Transport
+🚗 Travel / School Transport
 </label>
 
 <div class="input-wrapper">
@@ -660,7 +659,7 @@ value="0"
 <div class="form-group">
 
 <label for="emi">
-💳 EMI / Loan Payments
+💳 EMI / School Fee/ Tution/ Credit Card Bill
 </label>
 
 <div class="input-wrapper">
@@ -689,7 +688,7 @@ value="0"
 <div class="form-group">
 
 <label for="bills">
-📱 Bills & Subscriptions
+📱 Electricity Bills & Subscriptions
 </label>
 
 <div class="input-wrapper">
@@ -955,15 +954,15 @@ function analyzeFinances() {
 
     const expenses = {
 
-        "Household / Essentials": essential,
+        "Rental / Household / Essentials": essential,
 
         "Food & Lifestyle": food,
 
-        "Travel / Transport": travel,
+        "Travel / School Transport": travel,
 
-        "EMI / Loan Payments": emi,
+        "EMI / School Fee/ Tution/ Credit Card Bill": emi,
 
-        "Bills & Subscriptions": bills,
+        "Electricity Bills & Subscriptions": bills,
 
         "Shopping / Personal": shopping,
 
@@ -1430,7 +1429,7 @@ function analyzeFinances() {
 
 
             <div class="breakdown-row">
-                <span>🏠 Household / Essentials</span>
+                <span>🏠 Rental / Household / Essentials</span>
                 <strong>${formatRupees(essential)}</strong>
             </div>
 
@@ -1442,19 +1441,18 @@ function analyzeFinances() {
 
 
             <div class="breakdown-row">
-                <span>🚗 Travel / Transport</span>
+                <span>🚗 Travel / School Transport</span>
                 <strong>${formatRupees(travel)}</strong>
             </div>
 
 
             <div class="breakdown-row">
-                <span>💳 EMI / Loans</span>
+                <span>💳 EMI / School Fee/ Tution/ Credit Card Bill</span>
                 <strong>${formatRupees(emi)}</strong>
             </div>
 
 
-            <div class="breakdown-row">
-                <span>📱 Bills & Subscriptions</span>
+            <div class="breakdown-row">                <span>📱 Electricity Bills & Subscriptions</span>
                 <strong>${formatRupees(bills)}</strong>
             </div>
 
