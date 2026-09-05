@@ -83,7 +83,28 @@ Driving Business Value
 <div class="book-container">
 
 <div class="book-image">
-<img src="book-cover.png" alt="Educated Illiterates Book Cover">
+
+    <div class="book-3d">
+
+        <div class="book-cover-face book-front">
+            <img src="book-cover.png" alt="Educated Illiterates Front Cover">
+        </div>
+
+        <div class="book-pages">
+            <span>Money</span>
+            <span>Plan</span>
+            <span>Save</span>
+            <span>Invest</span>
+            <span>Grow</span>
+            <span>Protect</span>
+        </div>
+
+        <div class="book-cover-face book-back">
+            <img src="book-cover-back.png" alt="Educated Illiterates Back Cover">
+        </div>
+
+    </div>
+
 </div>
 
 <div class="book-content">
@@ -441,6 +462,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const book = document.querySelector(".book-3d");
+
+    if (!book) return;
+
+    const observer = new IntersectionObserver(
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+                    book.classList.add("book-active");
+                } else {
+                    book.classList.remove("book-active");
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.4
+        }
+    );
+
+    observer.observe(book);
+});
+</script>
+
+</body>
+</html>
 </body>
 </html>
